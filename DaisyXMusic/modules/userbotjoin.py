@@ -45,7 +45,7 @@ async def addchannel(client, message):
         await USER.send_message(message.chat.id, "I joined here as you requested")
     except UserAlreadyParticipant:
         await message.reply_text(
-            "<b>helper already in your chat</b>",
+            "<b>Music Player Userbot already in your chat</b>",
         )
     except Exception as e:
         print(e)
@@ -55,7 +55,7 @@ async def addchannel(client, message):
         )
         return
     await message.reply_text(
-        "<b>helper userbot joined your chat</b>",
+        "<b>Music Player Userbot joined your chat</b>",
     )
 
 
@@ -119,7 +119,7 @@ async def addcchannel(client, message):
         await USER.send_message(message.chat.id, "I joined here as you requested")
     except UserAlreadyParticipant:
         await message.reply_text(
-            "<b>helper already in your channel</b>",
+            "<b>Music Player Userbot already in your channel</b>",
         )
         return
     except Exception as e:
@@ -130,6 +130,6 @@ async def addcchannel(client, message):
         )
         return
     await message.reply_text(
-        "<b>helper userbot joined your channel</b>",
+        "<b>Music Player Userbot joined</b>",
     )
     
