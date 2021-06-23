@@ -21,7 +21,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from DaisyXMusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL,BOT_USERNAME
 logging.basicConfig(level=logging.INFO)
 
-@Client.on_message(filters.private & filters.incoming & filters.command(['vcstart']))
+@Client.on_message(filters.private & filters.incoming & filters.command(['start']))
 def _start(client, message):
     client.send_message(message.chat.id,
         text=tr.START_MSG.format(message.from_user.first_name, message.from_user.id),
@@ -42,7 +42,7 @@ def _start(client, message):
         reply_to_message_id=message.message_id
         )
 
-@Client.on_message(filters.command("vcstart") & ~filters.private & ~filters.channel)
+@Client.on_message(filters.command("start") & ~filters.private & ~filters.channel)
 async def gstart(_, message: Message):
     await message.reply_text(
         f"""**🔴 {PROJECT_NAME} is online**""",
@@ -58,7 +58,7 @@ async def gstart(_, message: Message):
     )
 
 
-@Client.on_message(filters.private & filters.incoming & filters.command(['vchelp']))
+@Client.on_message(filters.private & filters.incoming & filters.command(['help']))
 def _help(client, message):
     client.send_message(chat_id = message.chat.id,
         text = tr.HELP_MSG[1],
@@ -104,7 +104,7 @@ def map(pos):
         ]
     return button
 
-@Client.on_message(filters.command("vchelp") & ~filters.private & ~filters.channel)
+@Client.on_message(filters.command("help") & ~filters.private & ~filters.channel)
 async def ghelp(_, message: Message):
     await message.reply_text(
         f"""**🙋‍♀️ Hello there! I can play music in the voice chats of telegram groups & channels.**""",
@@ -118,4 +118,3 @@ async def ghelp(_, message: Message):
             ]
         ),
     )
-
